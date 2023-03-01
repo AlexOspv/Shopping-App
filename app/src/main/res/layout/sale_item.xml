@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="category"
+            type="String" />
+        <variable
+            name="name"
+            type="String" />
+        <variable
+            name="price"
+            type="String" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="175dp"
+        android:layout_height="220dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="@color/gray">
+
+                <ImageView
+                    android:id="@+id/saleItemImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="photo_sale_item"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
+            </FrameLayout>
+
+
+            <TextView
+                android:id="@+id/tvSaleCategory"
+                android:layout_width="50dp"
+                android:layout_height="17dp"
+                android:layout_margin="7dp"
+                android:background="@drawable/page_1_search_edit_text"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="@{category}"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvSaleName"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:id="@+id/tvSaleName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:fontFamily="@font/poppins_medium"
+                android:padding="3dp"
+                android:text="@{name}"
+                android:minLines="2"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvSalePrice"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvSalePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:fontFamily="@font/poppins_medium"
+                android:padding="3dp"
+                android:text="@{price}"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="SmallSp" />
+
+            <ImageButton
+                android:id="@+id/ibAdd"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="7dp"
+                android:background="@drawable/add_to_cart_sheet"
+                android:backgroundTint="@color/add_to_cart_color"
+                android:src="@drawable/add_to_cart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageButton
+                android:id="@+id/ibFavorite"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_margin="7dp"
+                android:background="@drawable/add_to_cart_sheet"
+                android:backgroundTint="@color/add_to_cart_color"
+                android:src="@drawable/like"
+                app:layout_constraintBottom_toBottomOf="@+id/ibAdd"
+                app:layout_constraintEnd_toStartOf="@+id/ibAdd"
+                app:layout_constraintTop_toTopOf="@+id/ibAdd" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

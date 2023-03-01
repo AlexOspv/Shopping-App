@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="category"
+            type="String" />
+        <variable
+            name="name"
+            type="String" />
+        <variable
+            name="price"
+            type="String" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_width="115dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="#667B7B7B">
+
+                <ImageView
+                    android:id="@+id/latestItemImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="photo_latest_view"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
+            </FrameLayout>
+
+
+            <TextView
+                android:id="@+id/tvLatestCategory"
+                android:layout_width="40dp"
+                android:layout_height="9dp"
+                android:layout_margin="7dp"
+                android:background="@drawable/page_1_search_edit_text"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="@{category}"
+                android:textColor="@color/black"
+                android:textSize="6sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvLatestName"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:id="@+id/tvLatestName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:fontFamily="@font/poppins_medium"
+                android:padding="3dp"
+                android:text="@{name}"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvLatestPrice"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:id="@+id/tvLatestPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:fontFamily="@font/poppins_medium"
+                android:padding="3dp"
+                android:text="@{price}"
+                android:textColor="@color/white"
+                android:textSize="7sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="SmallSp" />
+
+            <ImageButton
+                android:id="@+id/ibAdd"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="7dp"
+                android:background="@drawable/add_to_cart_sheet"
+                android:backgroundTint="@color/add_to_cart_color"
+                android:src="@drawable/add_to_cart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
