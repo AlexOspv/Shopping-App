@@ -1,4 +1,4 @@
-package com.example.shoppingapp.data.database
+package com.example.shoppingapp.model.items
 
 class User {
     var name: String? = null
