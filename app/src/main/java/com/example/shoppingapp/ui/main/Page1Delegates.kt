@@ -1,5 +1,7 @@
 package com.example.shoppingapp.ui.main
 
+import android.util.Log
+import com.bumptech.glide.Glide
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.CategoryItemBinding
 import com.example.shoppingapp.databinding.HorizontalListItemBinding
@@ -9,8 +11,8 @@ import com.example.shoppingapp.databinding.LatestItemBinding
 import com.example.shoppingapp.databinding.SaleItemBinding
 import com.example.shoppingapp.model.base.ListItem
 import com.example.shoppingapp.model.items.*
-import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
+import kotlin.reflect.typeOf
 
 object Page1Delegates {
 
@@ -19,44 +21,39 @@ object Page1Delegates {
             HorizontalListItemBinding.inflate(layoutInflater, root, false)
         }
     ) {
-        //onCreateViewHolder
         val adapter = ItemsHorizontalAdapter()
         binding.recyclerView.adapter = adapter
 
-
-        //onBindViewHolder
         bind {
             binding.categoryName = item.title
             binding.viewAll = item.viewAllButton
             adapter.items = item.list
         }
 
-        //onViewRecycled
-        onViewRecycled {
-            //...
-        }
     }
 
     val categoryItemDelegate =
         adapterDelegateViewBinding<CategoryItem, ListItem, CategoryItemBinding>(
             { layoutInflater, root -> CategoryItemBinding.inflate(layoutInflater, root, false)
-    }
+            }
     ) {
         bind {
-                binding.categoryNameTextView.text = item.name
-                binding.categoryIconImageView.setImageResource(R.drawable.robot_icon)
+            binding.category = item.name
+            binding.categoryIconImageView.setImageResource(item.image)
+            binding.executePendingBindings()
         }
     }
 
     val latestItemDelegate =
         adapterDelegateViewBinding<LatestItem, ListItem, LatestItemBinding>(
-            {layoutInflater, root -> LatestItemBinding.inflate(layoutInflater, root, false)}
+            {layoutInflater, root -> LatestItemBinding.inflate(layoutInflater, root, false)
+            }
     ) {
             bind {
-                binding.latestItemImageView.setImageResource(R.drawable.google_icon)
                 binding.category = item.category
                 binding.name = item.name
-                binding.price = "$ " +item.price.toString()
+                binding.price = "$ " + item.price.toString().format("%,3f").replace(".",",")
+                Glide.with(binding.latestItemImageView).load(item.image_url).into(binding.latestItemImageView)
                 binding.executePendingBindings()
         }
     }
@@ -72,10 +69,11 @@ object Page1Delegates {
             { inflater, container -> SaleItemBinding.inflate(inflater, container, false) }
         ) {
             bind {
-                binding.saleItemImageView.setImageResource(R.drawable.apple_icon)
                 binding.category = item.category
                 binding.name = item.name
-                binding.price = "$ " +item.price.toString()
+                binding.saleAmount = item.discount.toString() + "% off"
+                binding.price = "$ " +item.price.toString().format("%,2f").replace(".",",")
+                Glide.with(binding.saleItemImageView).load(item.image_url).into(binding.saleItemImageView)
                 binding.executePendingBindings()
             }
         }

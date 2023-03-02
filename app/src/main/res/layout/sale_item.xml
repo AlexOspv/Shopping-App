@@ -14,11 +14,14 @@
         <variable
             name="price"
             type="String" />
-
+        <variable
+            name="saleAmount"
+            type="String" />
     </data>
 
     <androidx.cardview.widget.CardView
 
+        android:id="@+id/saleCardView"
         android:layout_width="175dp"
         android:layout_height="220dp"
         android:layout_marginStart="10dp"
@@ -29,6 +32,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -42,11 +46,12 @@
                     android:contentDescription="photo_sale_item"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_launcher_background" />
+
             </FrameLayout>
 
 
             <TextView
-                android:id="@+id/tvSaleCategory"
+                android:id="@+id/saleCategoryTextView"
                 android:layout_width="50dp"
                 android:layout_height="17dp"
                 android:layout_margin="7dp"
@@ -61,8 +66,23 @@
                 tools:ignore="SmallSp" />
 
             <TextView
+                android:id="@+id/saleAmountTextView"
+                android:layout_width="50dp"
+                android:layout_height="17dp"
+                android:layout_margin="7dp"
+                android:background="@drawable/sale_amount_sheet"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="@{saleAmount}"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="SmallSp" />
+
+            <TextView
                 android:id="@+id/tvSaleName"
-                android:layout_width="wrap_content"
+                android:layout_width="96dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
                 android:fontFamily="@font/poppins_medium"
@@ -111,8 +131,11 @@
                 app:layout_constraintEnd_toStartOf="@+id/ibAdd"
                 app:layout_constraintTop_toTopOf="@+id/ibAdd" />
 
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     </androidx.cardview.widget.CardView>
+
 
 </layout>

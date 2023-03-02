@@ -7,7 +7,7 @@ data class SaleItem(
     val discount: Int,
     val image_url: String,
     val name: String,
-    val price: Int
+    val price: Double
 ) : ListItem {
     override val itemId: Long = hashCode().toLong()
 }

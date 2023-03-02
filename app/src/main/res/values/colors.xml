@@ -17,4 +17,5 @@
     <color name="bata_color">#4E55D7</color>
     <color name="add_to_cart_color">#E8EBF1</color>
     <color name="gray">#667B7B7B</color>
+    <color name="sale_amount">#F93A3A</color>
 </resources>

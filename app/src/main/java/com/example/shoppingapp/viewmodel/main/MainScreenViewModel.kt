@@ -1,17 +1,20 @@
 package com.example.shoppingapp.viewmodel.main
 
+import androidx.core.graphics.drawable.toDrawable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.shoppingapp.R
+import com.example.shoppingapp.core.network.di.NetworkComponent
 import com.example.shoppingapp.model.base.ListItem
 import com.example.shoppingapp.model.items.*
 import com.example.shoppingapp.viewmodel.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainScreenViewModel : BaseViewModel() {
 
+    private val api = NetworkComponent.createApi()
     private val _data = MutableLiveData<List<ListItem>>()
     val data: LiveData<List<ListItem>> = _data
 
@@ -28,7 +31,7 @@ class MainScreenViewModel : BaseViewModel() {
             ItemsHorizontalItem(
                 title = " ",
                 viewAllButton = " ",
-                list = IntRange(1, 20).map { CategoryItem("Phones", 1) }
+                list = IntRange(1, 20).map { CategoryItem("Phones", R.drawable.add_to_cart_sheet) }
             ),
             ItemsHorizontalItem(
                 title = "Latest",
@@ -44,25 +47,49 @@ class MainScreenViewModel : BaseViewModel() {
     }
 
     private suspend fun getItems(): List<ListItem> {
-        delay(2000L)
+        val categoryListItem = listOf(
+            CategoryItem("Pones",  com.example.shoppingapp.R.drawable.phone_icon),
+            CategoryItem("Headphones", image = R.drawable.headphones_icon),
+            CategoryItem("Games", image = R.drawable.controller_icon),
+            CategoryItem("Cars", image = R.drawable.car_icon),
+            CategoryItem("Furniture", image = R.drawable.bed_icon),
+            CategoryItem("Kids", image = R.drawable.robot_icon),
+        )
+        val latestResponse = api.latestItems()
+        val latestListItem = latestResponse.latest.map {
+            LatestItem(
+                name = it.name,
+                category = it.category,
+                price = it.price,
+                image_url = it.image_url
+            )
+        }
+        val saleResponse = api.saleItems()
+        val saleListItem = saleResponse.sale.map {
+            SaleItem(
+                name = it.name,
+                category = it.category,
+                price = it.price,
+                image_url = it.image_url,
+                discount = it.discount
+            )
+        }
+
         return listOf(
             ItemsHorizontalItem(
                 title = " ",
                 viewAllButton = " ",
-                list = IntRange(1, 20).map { CategoryItem("Phones", 1) }
+                list = categoryListItem
             ),
             ItemsHorizontalItem(
                 title = "Latest",
-                viewAllButton = "View all",
-                list = IntRange(1, 20).map { LatestItem("Phones", "none", "Samsung", 100) }
+                list = latestListItem
             ),
             ItemsHorizontalItem(
-                title = "Sale",
-                viewAllButton = "View all",
-                list = IntRange(1, 20).map { SaleItem("Phones", 30, "none", "Samsung", 100) }
+                title = "Flash sale",
+                list = saleListItem
             )
         )
     }
-
 }
 

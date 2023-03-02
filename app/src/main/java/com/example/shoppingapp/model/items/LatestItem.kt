@@ -6,7 +6,7 @@ data class LatestItem(
     val category: String,
     val image_url: String,
     val name: String,
-    val price: Int
+    val price: Double
 ) : ListItem {
     override val itemId: Long = hashCode().toLong()
 }
