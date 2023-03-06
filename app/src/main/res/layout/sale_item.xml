@@ -61,7 +61,7 @@
                 android:text="@{category}"
                 android:textColor="@color/black"
                 android:textSize="9sp"
-                app:layout_constraintBottom_toTopOf="@+id/tvSaleName"
+                app:layout_constraintBottom_toTopOf="@+id/saleNameTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="SmallSp" />
 
@@ -81,7 +81,7 @@
                 tools:ignore="SmallSp" />
 
             <TextView
-                android:id="@+id/tvSaleName"
+                android:id="@+id/saleNameTextView"
                 android:layout_width="96dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
@@ -91,11 +91,11 @@
                 android:minLines="2"
                 android:textColor="@color/white"
                 android:textSize="13sp"
-                app:layout_constraintBottom_toTopOf="@+id/tvSalePrice"
+                app:layout_constraintBottom_toTopOf="@+id/salePriceTextView"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
-                android:id="@+id/tvSalePrice"
+                android:id="@+id/salePriceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
@@ -109,7 +109,7 @@
                 tools:ignore="SmallSp" />
 
             <ImageButton
-                android:id="@+id/ibAdd"
+                android:id="@+id/addToCartImageView"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_margin="7dp"
@@ -120,16 +120,16 @@
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <ImageButton
-                android:id="@+id/ibFavorite"
+                android:id="@+id/addToFavoriteTextView"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_margin="7dp"
                 android:background="@drawable/add_to_cart_sheet"
                 android:backgroundTint="@color/add_to_cart_color"
                 android:src="@drawable/like"
-                app:layout_constraintBottom_toBottomOf="@+id/ibAdd"
-                app:layout_constraintEnd_toStartOf="@+id/ibAdd"
-                app:layout_constraintTop_toTopOf="@+id/ibAdd" />
+                app:layout_constraintBottom_toBottomOf="@+id/addToCartImageView"
+                app:layout_constraintEnd_toStartOf="@+id/addToCartImageView"
+                app:layout_constraintTop_toTopOf="@+id/addToCartImageView" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

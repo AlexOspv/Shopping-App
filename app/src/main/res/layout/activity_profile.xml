@@ -1,0 +1,404 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Profile">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tollBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/profile"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:contentDescription="@string/back_button"
+            android:src="@drawable/back_button" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profileCardView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:cardCornerRadius="30dp"
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tollBar">
+
+        <ImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/profile_icon"
+            android:scaleType="centerCrop"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/photoSwitchTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/change_photo"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="@+id/profileCardView"
+        app:layout_constraintStart_toStartOf="@+id/profileCardView"
+        app:layout_constraintTop_toBottomOf="@+id/profileCardView"
+        tools:ignore="SmallSp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/profileNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/profile_name"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/photoSwitchTextView"
+        app:layout_constraintStart_toStartOf="@+id/photoSwitchTextView"
+        app:layout_constraintTop_toBottomOf="@+id/photoSwitchTextView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/uploadItemButton"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
+        app:backgroundTint="#4E55D7"
+        style="@style/ButtonStyle"
+        android:drawableStart="@drawable/download_icon"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/upload_item"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileNameTextView" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/uploadItemButton">
+
+        <LinearLayout
+            android:id="@+id/tradeStoreLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/tradeStoreIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_profile_item"
+                android:contentDescription="@string/trade_store"
+                android:padding="10dp"
+                android:src="@drawable/wallet" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tradeStoreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="6dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/trade_store_arrow"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/tradeStoreArrow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="180dp"
+                android:contentDescription="@string/trade_store_arrow"
+                android:padding="8dp"
+                android:src="@drawable/round_keyboard_arrow_right_24" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/paymentMethodLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="32dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tradeStoreLinearLayout">
+
+            <ImageView
+                android:id="@+id/paymentMethodIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_profile_item"
+                android:contentDescription="@string/payment_method_icon"
+                android:padding="10dp"
+                android:src="@drawable/wallet" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/paymentMethodTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="6dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/payment_method"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/paymentMethodArrow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="136dp"
+                android:contentDescription="@string/trade_store"
+                android:padding="8dp"
+                android:src="@drawable/round_keyboard_arrow_right_24" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/balanceLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="32dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/paymentMethodLinearLayout">
+
+            <ImageView
+                android:id="@+id/balanceIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_profile_item"
+                android:contentDescription="@string/trade_store"
+                android:padding="10dp"
+                android:src="@drawable/wallet" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/balanceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="6dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/balance"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/balanceArrow"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="170dp"
+                android:contentDescription="@string/amount"
+                android:fontFamily="@font/montserrat_medium"
+                android:padding="8dp"
+                android:text="@string/_1000"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tradeHistoryLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="32dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/balanceLinearLayout">
+
+            <ImageView
+                android:id="@+id/tradeHistoryIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_profile_item"
+                android:contentDescription="@string/trade_store"
+                android:padding="10dp"
+                android:src="@drawable/wallet" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tradeHistoryTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="6dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/trade_history"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/tradeHistoryArrow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="168dp"
+                android:contentDescription="@string/trade_store"
+                android:padding="8dp"
+                android:src="@drawable/round_keyboard_arrow_right_24" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/restorePurchaseLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="32dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tradeHistoryLinearLayout">
+
+            <ImageView
+                android:id="@+id/restorePurchaseIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_profile_item"
+                android:contentDescription="@string/restore_purchase"
+                android:padding="10dp"
+                android:src="@drawable/restore_purchase_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/restorePurchaseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="6dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/restore_purchase"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/restorePurchaseArrow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="137dp"
+                android:contentDescription="@string/trade_store"
+                android:padding="8dp"
+                android:src="@drawable/round_keyboard_arrow_right_24" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/helpLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/restorePurchaseLinearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/restorePurchaseLinearLayout">
+
+            <ImageView
+                android:id="@+id/helpIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_profile_item"
+                android:contentDescription="@string/help"
+                android:padding="10dp"
+                android:src="@drawable/help_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/helpTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="6dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/help"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/logOutLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/helpLinearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/helpLinearLayout">
+
+            <ImageView
+                android:id="@+id/logOuIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_profile_item"
+                android:contentDescription="@string/log_out"
+                android:padding="10dp"
+                android:src="@drawable/log_out_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/logOuTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="6dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/log_out"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="start"
+        app:menu="@menu/my_navigation_items"
+        android:background="@drawable/menu_sheet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

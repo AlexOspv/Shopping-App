@@ -42,7 +42,7 @@
 
 
             <TextView
-                android:id="@+id/tvLatestCategory"
+                android:id="@+id/latestCategoryTextView"
                 android:layout_width="40dp"
                 android:layout_height="9dp"
                 android:layout_margin="7dp"
@@ -52,12 +52,12 @@
                 android:text="@{category}"
                 android:textColor="@color/black"
                 android:textSize="6sp"
-                app:layout_constraintBottom_toTopOf="@+id/tvLatestName"
+                app:layout_constraintBottom_toTopOf="@+id/latestNameTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="SmallSp" />
 
             <TextView
-                android:id="@+id/tvLatestName"
+                android:id="@+id/latestNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
@@ -66,12 +66,12 @@
                 android:text="@{name}"
                 android:textColor="@color/white"
                 android:textSize="9sp"
-                app:layout_constraintBottom_toTopOf="@+id/tvLatestPrice"
+                app:layout_constraintBottom_toTopOf="@+id/latestPriceTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="SmallSp" />
 
             <TextView
-                android:id="@+id/tvLatestPrice"
+                android:id="@+id/latestPriceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
@@ -85,7 +85,7 @@
                 tools:ignore="SmallSp" />
 
             <ImageButton
-                android:id="@+id/ibAdd"
+                android:id="@+id/addToCartImageView"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_margin="7dp"

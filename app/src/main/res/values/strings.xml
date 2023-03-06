@@ -9,4 +9,35 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="sign_in">Sign in</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="log_in">Log in</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="sign_in_with_apple">Sign in with Apple</string>
+    <string name="profile_icon">profile_icon</string>
+    <string name="trade_by">Trade by</string>
+    <string name="bata">bata</string>
+    <string name="location">Location</string>
+    <string name="what_are_you_looking_for">What are you looking for?</string>
+    <string name="profile">Profile</string>
+    <string name="back_button">back_button</string>
+    <string name="change_photo">Change photo</string>
+    <string name="profile_name">Profile name</string>
+    <string name="upload_item">Upload item</string>
+    <string name="trade_store">Trade store</string>
+    <string name="trade_store_arrow">Trade store</string>
+    <string name="trade_store_image">Trade store</string>
+    <string name="payment_method_icon">Payment method icon</string>
+    <string name="payment_method">Payment method</string>
+    <string name="balance">Balance</string>
+    <string name="amount">Amount</string>
+    <string name="_1000">1000 $</string>
+    <string name="trade_history">Trade history</string>
+    <string name="restore_purchase">Restore purchase</string>
+    <string name="help">Help</string>
+    <string name="log_out">Log out</string>
 </resources>

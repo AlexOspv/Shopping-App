@@ -7,7 +7,6 @@ class User {
     var avatarMockUpResource = 0
 
     constructor() {}
-
     constructor(name: String?, email: String?, id: String?, avatarMockUpResource: Int) {
         this.name = name
         this.email = email

@@ -18,4 +18,5 @@
     <color name="add_to_cart_color">#E8EBF1</color>
     <color name="gray">#667B7B7B</color>
     <color name="sale_amount">#F93A3A</color>
+    <color name="light_gray">#EEEFF4</color>
 </resources>

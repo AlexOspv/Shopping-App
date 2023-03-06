@@ -24,17 +24,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <ImageButton
-            android:id="@+id/profileIconButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@color/white"
-            android:src="@drawable/profile_photo"
-            android:contentDescription="profile icon"
-            app:layout_constraintEnd_toEndOf="@+id/toggleLocationButton"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profileIconImageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="16dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/locationTextView"
             app:layout_constraintStart_toStartOf="@+id/locationTextView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/profile_icon"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_photo" />
+
+        </androidx.cardview.widget.CardView>
+
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tradeByTextView"
@@ -42,12 +53,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="144dp"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
+            android:fontFamily="@font/montserrat"
             app:layout_constraintBottom_toBottomOf="@+id/mainMenuButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/mainMenuButton"
-            tools:text="Trade by" />
+            android:text="@string/trade_by" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/bataTextView"
@@ -55,40 +67,43 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:textColor="@color/bata_color"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
+            android:fontFamily="@font/montserrat"
             app:layout_constraintBottom_toBottomOf="@+id/tradeByTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/tradeByTextView"
             app:layout_constraintTop_toTopOf="@+id/tradeByTextView"
             app:layout_constraintVertical_bias="0.0"
-            tools:text="bata" />
+            android:text="@string/bata" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/locationTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/location"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/toggleLocationButton"
             app:layout_constraintEnd_toStartOf="@+id/toggleLocationButton"
             app:layout_constraintTop_toTopOf="@+id/toggleLocationButton"
-            android:text="Location" />
+            tools:ignore="SmallSp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/toggleLocationButton"
             style="@style/IconButton"
             android:layout_width="20dp"
             android:layout_height="20dp"
-
-            android:layout_marginRight="8dp"
+            android:layout_marginStart="24dp"
             android:background="@android:color/transparent"
             app:icon="@drawable/baseline_keyboard_arrow_down_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileIconButton" />
+            app:layout_constraintStart_toStartOf="@+id/locationTextView"
+            app:layout_constraintTop_toBottomOf="@+id/profileIconImageView" />
 
         <EditText
-            android:id="@+id/etSearch"
+            android:id="@+id/searchEditText"
             android:layout_width="match_parent"
             android:layout_height="24dp"
             android:layout_marginStart="56dp"
@@ -100,7 +115,7 @@
             android:drawableEnd="@drawable/search_24"
             android:background="@drawable/page_1_search_edit_text"
             android:fontFamily="@font/montserrat_medium"
-            android:hint="What are you looking for?"
+            android:hint="@string/what_are_you_looking_for"
             android:gravity="center"
             android:inputType="text"
             android:paddingStart="10dp"
@@ -108,7 +123,8 @@
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/locationTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/locationTextView"
+            tools:ignore="SmallSp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -120,7 +136,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etSearch"
+            app:layout_constraintTop_toBottomOf="@+id/searchEditText"
             app:layout_constraintVertical_bias="1.0"
             tools:listitem="@layout/horizontal_list_item" />
 

@@ -1,5 +1,6 @@
 package com.example.shoppingapp.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -39,6 +40,18 @@ class SignInPage : AppCompatActivity() {
             loginSignUpUser(binding.emailEditText.text.toString().trim { it <= ' ' },
                 binding.passwordEditText.text.toString().trim { it <= ' ' })
         })
+
+        val user = auth.currentUser
+
+        val sharedPreferences = getSharedPreferences(
+            "mySharedPreferences",
+            MODE_PRIVATE
+        )
+        val editor = sharedPreferences.edit()
+        editor.clear()
+        editor.putString("accountId", user!!.uid)
+        editor.apply()
+
     }
 
     private fun loginSignUpUser(email: String, password: String) {
@@ -63,9 +76,11 @@ class SignInPage : AppCompatActivity() {
                             val user = auth.currentUser
                             //updateUI(user);
                             val intent = Intent(this, Page1::class.java)
-                            intent.putExtra(
-                                "userName",
-                                binding.nameEditText.text.toString().trim { it <= ' ' })
+//                            if (user != null) {
+//                                intent.putExtra(
+//                                    "userId", user.uid
+//                                )
+//                            }
                             startActivity(intent)
                         } else {
                             // If sign in fails, display a message to the user.
@@ -88,6 +103,8 @@ class SignInPage : AppCompatActivity() {
                     .show()
             } else if (binding.emailEditText.text.toString().trim { it <= ' ' } == "") {
                 Toast.makeText(this, "Please input your email", Toast.LENGTH_SHORT).show()
+            } else if (binding.nameEditText.text.toString().trim { it <= ' ' } == "") {
+                Toast.makeText(this, "Please input your name", Toast.LENGTH_SHORT).show()
             } else {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(
@@ -107,9 +124,11 @@ class SignInPage : AppCompatActivity() {
 
                             //updateUI(user);
                             val intent = Intent(this, Page1::class.java)
-                            intent.putExtra(
-                                "userName",
-                                binding.nameEditText.text.toString().trim { it <= ' ' })
+//                            if (user != null) {
+//                                intent.putExtra(
+//                                    "userId", user.uid
+//                                )
+//                            }
                             startActivity(intent)
                         } else {
                             // If sign in fails, display a message to the user.
@@ -135,9 +154,10 @@ class SignInPage : AppCompatActivity() {
         user.id = firebaseUser.uid
         user.email = firebaseUser.email
         user.name = binding.nameEditText.text.toString().trim { it <= ' ' }
-        usersDatabaseReference?.push()?.setValue(user)
+        usersDatabaseReference?.child(user.id!!)?.setValue(user)
     }
 
+    @SuppressLint("SetTextI18n")
     fun toggleLogInMode(view: View?) {
         if (loginModeActive) {
             loginModeActive = false
